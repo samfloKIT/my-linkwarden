@@ -5,7 +5,7 @@ services:
     env_file: stack.env
     restart: always
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - linkwarden-data:/var/lib/postgresql/data
   linkwarden:
     env_file: stack.env
     environment:
@@ -19,3 +19,5 @@ services:
       - linkwarden-data:/data/data
     depends_on:
       - postgres
+volumes:
+  linkwarden-data:
